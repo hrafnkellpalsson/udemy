@@ -1,5 +1,6 @@
 import { FETCH_WEATHER } from '../actions/index';
 
+// The first argument to a reducer is the particular piece of state this reducer is responsible for.
 export default function(state=[], action) {
   switch (action.type) {
     case FETCH_WEATHER:

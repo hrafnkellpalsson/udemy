@@ -9,10 +9,14 @@ class SearchBar extends Component {
 
     this.state = { term: '' };
 
+
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  // Remember the rule of thumb, if you've got a callback that makes a reference to this, chances are you need to bind it.
+  // Genereally that is done in the constructor.
+  // Another option is to use a fat arrow function.
   onInputChange(event) {
     this.setState( { term: event.target.value });
   }
