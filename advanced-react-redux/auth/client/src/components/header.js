@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
-  renderLinks = props => {
-    if (props.authenticated) {
+  renderLinks = authenticated => {
+    if (authenticated) {
       // Show a link to sign out
       return (
         <li className="nav-item">
@@ -12,7 +12,7 @@ class Header extends Component {
         </li>
       )
     }
-    
+
     // Show links to sign in or sign up
     return [
       <li className="nav-item" key={1}>
@@ -29,7 +29,7 @@ class Header extends Component {
       <nav className="navbar navbar-light">
         <Link to="/" className="navbar-brand">Redux Auth</Link>
         <ul className="nav navbar-nav">
-          {this.renderLinks(this.props)}
+          {this.renderLinks(this.props.authenticated)}
         </ul>
       </nav>
     )

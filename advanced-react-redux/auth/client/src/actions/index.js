@@ -17,7 +17,9 @@ export function signinUser({ email, password }, redirect) {
         // - Redirect to route '/feature'
         redirect()
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log('Error signing in')
+        console.log(error)
         // If request is bad...
         // - Show an error to the user
         dispatch(authError('Bad Login Info'))
