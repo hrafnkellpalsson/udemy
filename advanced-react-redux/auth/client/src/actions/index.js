@@ -17,12 +17,30 @@ export function signinUser({ email, password }, redirect) {
         // - Redirect to route '/feature'
         redirect()
       })
-      .catch((error) => {
+      .catch(error => {
         console.log('Error signing in')
-        console.log(error)
+        console.log(error.response)
         // If request is bad...
         // - Show an error to the user
         dispatch(authError('Bad Login Info'))
+      })
+  }
+}
+
+export function signupUser(email, password, redirect) {
+  return function(dispatch) {
+    // Submit email/password to the server
+    axios.post(`${ROOT_URL}/signup`, { email, password })
+      .then(response => {
+        dispatch({ type: AUTH_USER })
+        localStorage.setItem('token', response.data.token)
+        redirect()
+      })
+      .catch(error => {
+        console.log('Error signing up')
+        console.log(error.response)
+        const responseBody = error.response.data
+        dispatch(authError(responseBody.error))
       })
   }
 }

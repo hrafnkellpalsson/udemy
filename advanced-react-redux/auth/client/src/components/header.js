@@ -13,7 +13,7 @@ class Header extends Component {
       )
     }
 
-    // Show links to sign in or sign up
+    // Else, show links to sign in or sign up
     return [
       <li className="nav-item" key={1}>
         <Link className="nav-link" to="/signin">Sign In</Link>
