@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
+
+import Header from './header'
+import Resources from './resources'
 
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+      <div>
+        <Header />
+        <Route exact path="/resources" render={Resources} />
+        {/* <Route path="/feature" component={Feature} /> */}
+      </div>
     );
   }
 }
