@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script src="./scripts/aws-sdk.js"></script>
+    <!-- Quirk that is needed for AWS Cognito library to work -->
+    <!-- <script>const AWSCognito = AWS</script> -->
+    <!-- Just the following two scripts are needed if working only with User Pools (so not Identity Pools as well) -->
+    <script src="./scripts/aws-cognito-sdk.js"></script>
+    <script src="./scripts/amazon-cognito-identity.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div>
+        <h5>Current user</h5>
+        <p id="username"></id>
+      </div>
+
+      <div>
+        <h5>Sign Up Form</h5>
+        <form>
+          <div class="form-group">
+            <label for="email-input">Email</label>
+            <input type="email" name="email" id="email-input" class="form-control" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="password-input">Password</label>
+            <input type="password" name="password" id="password-input" class="form-control" placeholder="Enter password">
+          </div>
+          <input type="submit" id="signup-submit-button" class="btn btn-primary" />
+        </form>
+      </div>
+
+      <div>
+        <h5>Confirmation Form</h5>
+        <form>
+          <!-- Email is stored in local storage after sign up so we don't need to ask for it explicitly again -->
+          <!-- <div class="form-group">
+            <label for="confirmation-email-input">Email</label>
+            <input type="email" name="email" id="confirmation-email-input" class="form-control" placeholder="Enter email">
+          </div> -->
+          <div class="form-group">
+            <label for="confirmation-code-input">Confirmation Code</label>
+            <input type="text" name="password" id="confirmation-code-input" class="form-control" placeholder="Enter confirmation code">
+          </div>
+          <br>
+          <input type="submit" id="confirmation-submit-button" class="btn btn-primary" />
+        </form>
+      </div>
+
+    </div>
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/signup.js"></script>
+    <script src="./scripts/confirmation.js"></script>
+    <script src="./scripts/sessions.js"></script>
+    <script src="./scripts/dynamo.js"></script>
+  </body>
+</html>
